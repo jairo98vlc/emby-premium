@@ -9,17 +9,19 @@
     
     <script>
         // ==========================================
-        // CONFIGURA TU USUARIO DE TELEGRAM AQUÍ:
+        // CONFIGURACIÓN: CAMBIA LO QUE HAY ENTRE LAS COMILLAS
         // ==========================================
-        const USUARIO_TELEGRAM = 'magoslunas'; // <--- Pon tu alias sin el @
+        const USUARIO_TELEGRAM = 'magoslunas'; // <-- EJEMPLO: 'pedro_streaming'
         // ==========================================
 
         document.addEventListener('DOMContentLoaded', () => {
             const links = document.querySelectorAll('.tg-link');
             links.forEach(link => {
                 link.href = `https://t.me/${USUARIO_TELEGRAM}`;
-                if(link.classList.contains('tg-text')) {
-                    link.innerText = `@${USUARIO_TELEGRAM}`;
+                // Actualiza el texto de los botones que tengan la clase 'tg-text'
+                const textSpan = link.querySelector('.tg-text');
+                if(textSpan) {
+                    textSpan.innerText = `@${USUARIO_TELEGRAM}`;
                 }
             });
         });
@@ -30,90 +32,73 @@
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .emby-green { color: #52b54b; }
         .bg-emby { background-color: #52b54b; }
-        .btn-hover:hover { transform: translateY(-3px); transition: 0.3s; box-shadow: 0 10px 20px rgba(82, 181, 75, 0.2); }
+        .btn-hover:hover { transform: translateY(-3px); transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3); }
         .telegram-blue { background-color: #0088cc; }
     </style>
 </head>
 <body>
 
     <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <h1 class="text-2xl font-bold emby-green tracking-tighter text-white">EMBY<span class="text-white opacity-80">PREMIUM</span></h1>
-        <a href="#" target="_blank" class="tg-link telegram-blue px-6 py-2 rounded-full font-bold text-sm flex items-center btn-hover text-white decoration-0">
+        <h1 class="text-2xl font-bold emby-green tracking-tighter">EMBY<span class="text-white opacity-80">PREMIUM</span></h1>
+        <a href="#" target="_blank" class="tg-link telegram-blue px-6 py-2 rounded-full font-bold text-sm flex items-center btn-hover text-white decoration-none">
             <i class="fab fa-telegram-plane mr-2"></i> Contactar
         </a>
     </nav>
 
     <section class="py-16 text-center px-4">
         <span class="bg-green-500/10 text-green-400 border border-green-500/20 px-4 py-1 rounded-full text-[10px] font-bold mb-6 inline-block uppercase tracking-[0.2em]">Servidor Privado 2026</span>
-        <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">Cine y Series <br><span class="emby-green">Premium.</span></h2>
-        <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Calidad 4K HDR garantizada. Sin esperas, sin anuncios y con el catálogo más actualizado.</p>
+        <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tight italic">Cine y Series <br><span class="emby-green">Premium.</span></h2>
+        <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">Calidad 4K HDR garantizada. Acceso instantáneo por Telegram.</p>
         <div class="flex justify-center">
-            <a href="#" target="_blank" class="tg-link telegram-blue px-10 py-4 rounded-2xl font-bold text-lg btn-hover flex items-center shadow-lg shadow-blue-500/20 text-white">
+            <a href="#" target="_blank" class="tg-link telegram-blue px-10 py-4 rounded-2xl font-bold text-lg btn-hover flex items-center shadow-lg text-white">
                 <i class="fab fa-telegram-plane mr-3 text-2xl"></i> Solicitar Demo Gratis
             </a>
         </div>
     </section>
 
-    <section id="planes" class="py-24 bg-[#0d121f]">
+    <section id="planes" class="py-20 bg-[#0d121f]">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <h3 class="text-4xl font-bold mb-16">Nuestros Planes</h3>
-            
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-10 rounded-3xl flex flex-col hover:border-blue-500/50 transition">
-                    <h4 class="text-gray-400 uppercase tracking-widest text-xs font-bold mb-4">Plan Básico</h4>
-                    <div class="mb-6">
-                        <span class="text-5xl font-black">6€</span>
-                        <span class="text-gray-500">/mes</span>
-                    </div>
-                    <ul class="text-gray-400 mb-8 space-y-4 text-left flex-grow">
+                <div class="glass p-8 rounded-3xl flex flex-col hover:border-blue-500/50 transition">
+                    <span class="text-4xl font-black mb-4">6€<span class="text-sm text-gray-500 font-normal">/1 mes</span></span>
+                    <ul class="text-gray-400 mb-8 space-y-2 text-sm text-left">
                         <li><i class="fas fa-check emby-green mr-2"></i> 1 Pantalla</li>
-                        <li><i class="fas fa-check emby-green mr-2"></i> Calidad 4K HDR</li>
-                        <li><i class="fas fa-check emby-green mr-2"></i> Soporte Telegram</li>
+                        <li><i class="fas fa-check emby-green mr-2"></i> Calidad 4K</li>
                     </ul>
-                    <a href="#" target="_blank" class="tg-link block w-full py-4 rounded-xl font-bold border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition">Contratar</a>
+                    <a href="#" target="_blank" class="tg-link block w-full py-3 rounded-xl font-bold border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition text-center">Contratar</a>
                 </div>
 
-                <div class="glass p-10 rounded-3xl border-2 border-green-500 relative flex flex-col scale-105 shadow-2xl bg-green-500/[0.04]">
-                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 px-6 py-1 rounded-full text-[10px] font-black uppercase text-black">Mejor Oferta</span>
-                    <h4 class="text-gray-200 uppercase tracking-widest text-xs font-bold mb-4 text-white">Anual</h4>
-                    <div class="mb-6">
-                        <span class="text-5xl font-black">16€</span>
-                        <span class="text-gray-300">/año</span>
-                    </div>
-                    <ul class="text-gray-200 mb-8 space-y-4 text-left flex-grow">
-                        <li><i class="fas fa-check emby-green mr-2"></i> 3 Pantallas</li>
-                        <li><i class="fas fa-check emby-green mr-2"></i> Todo el Catálogo VIP</li>
-                        <li><i class="fas fa-check emby-green mr-2"></i> Soporte Prioritario</li>
+                <div class="glass p-8 rounded-3xl border-2 border-green-500 relative flex flex-col scale-105 shadow-2xl bg-green-500/[0.04]">
+                    <span class="text-4xl font-black mb-4 text-white">16€<span class="text-sm text-gray-300 font-normal">/12 meses</span></span>
+                    <ul class="text-gray-200 mb-8 space-y-2 text-sm text-left">
+                        <li><i class="fas fa-check emby-green mr-2"></i> 3 Pantallas simultáneas</li>
+                        <li><i class="fas fa-check emby-green mr-2"></i> Soporte VIP</li>
                     </ul>
-                    <a href="#" target="_blank" class="tg-link block w-full py-4 telegram-blue rounded-xl font-bold btn-hover text-white shadow-lg shadow-blue-500/30">¡Ahorrar Ahora!</a>
+                    <a href="#" target="_blank" class="tg-link block w-full py-3 telegram-blue rounded-xl font-bold btn-hover text-white shadow-lg text-center">¡Mejor Oferta!</a>
                 </div>
 
-                <div class="glass p-10 rounded-3xl flex flex-col hover:border-blue-500/50 transition">
-                    <h4 class="text-gray-400 uppercase tracking-widest text-xs font-bold mb-4">Trimestral</h4>
-                    <div class="mb-6">
-                        <span class="text-5xl font-black">10€</span>
-                        <span class="text-gray-500">/3 meses</span>
-                    </div>
-                    <ul class="text-gray-400 mb-8 space-y-4 text-left flex-grow">
+                <div class="glass p-8 rounded-3xl flex flex-col hover:border-blue-500/50 transition">
+                    <span class="text-4xl font-black mb-4">10€<span class="text-sm text-gray-500 font-normal">/3 meses</span></span>
+                    <ul class="text-gray-400 mb-8 space-y-2 text-sm text-left">
                         <li><i class="fas fa-check emby-green mr-2"></i> 2 Pantallas</li>
-                        <li><i class="fas fa-check emby-green mr-2"></i> Actualizaciones diarias</li>
-                        <li><i class="fas fa-check emby-green mr-2"></i> Acceso Total</li>
+                        <li><i class="fas fa-check emby-green mr-2"></i> Estrenos diarios</li>
                     </ul>
-                    <a href="#" target="_blank" class="tg-link block w-full py-4 rounded-xl font-bold border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition">Contratar</a>
+                    <a href="#" target="_blank" class="tg-link block w-full py-3 rounded-xl font-bold border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition text-center">Contratar</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="py-16 text-center border-t border-white/5">
-        <p class="text-gray-500 text-sm mb-6 uppercase tracking-widest">Atención al cliente personalizada:</p>
+        <p class="text-gray-500 text-sm mb-6 uppercase tracking-widest font-bold">Atención al cliente personalizada:</p>
         <div class="flex justify-center">
-            <a href="#" target="_blank" class="tg-link telegram-blue text-white px-10 py-4 rounded-2xl font-bold btn-hover flex items-center">
+            <a href="#" target="_blank" class="tg-link telegram-blue text-white px-10 py-4 rounded-2xl font-bold btn-hover flex items-center decoration-none shadow-xl">
                 <i class="fab fa-telegram mr-3 text-2xl"></i> <span class="tg-text">@TU_USUARIO</span>
             </a>
         </div>
-        <p class="mt-12 text-[10px] text-gray-700 uppercase tracking-[0.4em]">&copy; 2026 EMBY PREMIUM SERVICES</p>
+        <p class="mt-12 text-[10px] text-gray-700 uppercase tracking-[0.4em]">&copy; 2026 EMBY PREMIUM</p>
     </footer>
 
 </body>
 </html>
+
