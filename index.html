@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emby Premium | Streaming Pro</title>
+    <title>ChurraTV | Emby & Plex Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -11,80 +11,130 @@
         // ==========================================
         // CONFIGURACIÓN:
         const USUARIO_TELEGRAM = 'magoslunas'; // Tu alias de Telegram sin @
-        const REVTAG_REVOLUT = 'jairoyn0s';    // Tu @Revtag de Revolut
         // ==========================================
-
-        function copiarRevtag() {
-            navigator.clipboard.writeText(REVTAG_REVOLUT);
-            const btn = document.getElementById('btn-copy');
-            btn.innerText = '¡Copiado!';
-            setTimeout(() => { btn.innerText = 'Copiar @Tag'; }, 2000);
-        }
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.tg-link').forEach(link => {
                 link.href = `https://t.me/${USUARIO_TELEGRAM}`;
             });
-            document.getElementById('display-revtag').innerText = `@${REVTAG_REVOLUT}`;
         });
     </script>
 
     <style>
-        body { background-color: #0b0f1a; color: white; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .emby-green { color: #52b54b; }
-        .telegram-blue { background-color: #0088cc; }
-        .revolut-white { background-color: #ffffff; color: #000000; }
+        body { background-color: #0b0f1a; color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .churra-gold { color: #fbbf24; }
+        .bg-churra { background-color: #fbbf24; color: black; }
+        .telegram-blue { background-color: #0088cc; color: white; }
+        .btn-hover:hover { transform: translateY(-3px); transition: 0.3s; box-shadow: 0 10px 20px rgba(251, 191, 36, 0.2); }
+        
+        /* Estilo para las FAQs */
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary i { transform: rotate(180deg); }
     </style>
 </head>
 <body>
 
     <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <h1 class="text-2xl font-bold emby-green">EMBY<span class="text-white">PREMIUM</span></h1>
-        <a href="#" class="tg-link telegram-blue px-6 py-2 rounded-full font-bold text-sm flex items-center text-white decoration-none">
-            <i class="fab fa-telegram-plane mr-2"></i> Telegram
+        <h1 class="text-3xl font-black churra-gold tracking-tighter italic">CHURRA<span class="text-white">TV</span></h1>
+        <a href="#" class="tg-link telegram-blue px-6 py-2 rounded-full font-bold text-sm flex items-center btn-hover">
+            <i class="fab fa-telegram-plane mr-2"></i> Soporte
         </a>
     </nav>
 
-    <section class="py-12 text-center px-4">
-        <h2 class="text-4xl md:text-6xl font-black mb-6 italic text-white">Paga con <span class="text-blue-400 font-extrabold">Revolut</span></h2>
-        <p class="text-gray-400 mb-8">Copia nuestro @Tag, realiza el pago y envía la captura por Telegram.</p>
+    <section class="py-16 text-center px-4">
+        <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500">Disponible en:</span>
+            <span class="text-xs font-bold">EMBY</span>
+            <span class="text-white opacity-20">•</span>
+            <span class="text-xs font-bold text-orange-400">PLEX</span>
+        </div>
+        <h2 class="text-6xl md:text-8xl font-black mb-6 tracking-tight tracking-tighter">Cine sin límites <br>en <span class="churra-gold italic">ChurraTV</span></h2>
+        <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">El servidor más estable con estrenos diarios. Tú eliges la plataforma, nosotros ponemos la calidad.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#planes" class="bg-churra px-10 py-4 rounded-2xl font-bold text-lg btn-hover shadow-lg">Ver Planes</a>
+        </div>
+    </section>
+
+    <section id="planes" class="py-20 bg-[#0d121f]">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div class="glass p-10 rounded-[2.5rem] text-center">
+                <h3 class="text-gray-500 text-xs font-bold mb-4 uppercase">Mensual</h3>
+                <div class="text-5xl font-black mb-10">6€</div>
+                <a href="#" class="tg-link block w-full py-4 rounded-2xl font-bold border border-yellow-500/30 text-yellow-500 hover:bg-yellow-500 hover:text-black transition text-center">Contratar</a>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] text-center border-2 border-yellow-500 scale-105 bg-yellow-500/[0.03] shadow-2xl relative">
+                <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-churra px-6 py-1 rounded-full text-[10px] font-black uppercase italic">Ahorro Churra</span>
+                <h3 class="text-white text-xs font-bold mb-4 uppercase">Anual VIP</h3>
+                <div class="text-6xl font-black mb-10">16€</div>
+                <a href="#" class="tg-link block w-full py-4 bg-churra rounded-2xl font-bold btn-hover shadow-lg text-center">¡Mejor Precio!</a>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] text-center">
+                <h3 class="text-gray-500 text-xs font-bold mb-4 uppercase">Trimestral</h3>
+                <div class="text-5xl font-black mb-10">10€</div>
+                <a href="#" class="tg-link block w-full py-4 rounded-2xl font-bold border border-yellow-500/30 text-yellow-500 hover:bg-yellow-500 hover:text-black transition text-center text-center">Contratar</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 max-w-4xl mx-auto px-6">
+        <h3 class="text-4xl font-black text-center mb-16 italic tracking-tight uppercase">Dudas <span class="churra-gold">Frecuentes</span></h3>
         
-        <div class="inline-flex items-center glass p-2 rounded-2xl border border-white/20">
-            <div class="px-6 py-3 font-mono font-bold text-xl tracking-wider" id="display-revtag">@CARGANDO...</div>
-            <button onclick="copiarRevtag()" id="btn-copy" class="revolut-white px-6 py-3 rounded-xl font-bold hover:bg-gray-200 transition">
-                Copiar @Tag
-            </button>
+        <div class="space-y-4">
+            <details class="glass group rounded-3xl overflow-hidden transition-all duration-300 border border-white/5">
+                <summary class="p-6 flex justify-between items-center cursor-pointer list-none hover:bg-white/5 transition">
+                    <span class="font-bold text-lg tracking-tight">¿Qué diferencia hay entre Emby y Plex?</span>
+                    <i class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"></i>
+                </summary>
+                <div class="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5">
+                    Ambas son plataformas de streaming excelentes. **Emby** suele ser más ligero y rápido en dispositivos antiguos, mientras que **Plex** ofrece una interfaz algo más moderna. En **ChurraTV** puedes elegir la que prefieras con tu suscripción.
+                </div>
+            </details>
+
+            <details class="glass group rounded-3xl overflow-hidden transition-all duration-300 border border-white/5">
+                <summary class="p-6 flex justify-between items-center cursor-pointer list-none hover:bg-white/5 transition">
+                    <span class="font-bold text-lg tracking-tight">¿Cómo se realiza el pago por Revolut?</span>
+                    <i class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"></i>
+                </summary>
+                <div class="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5">
+                    Es muy sencillo. Al contactar por Telegram, te pasamos nuestro **@Tag de Revolut**. Realizas el envío y, en cuanto nos pasas la captura, activamos tu cuenta de ChurraTV en menos de 5 minutos.
+                </div>
+            </details>
+
+            <details class="glass group rounded-3xl overflow-hidden transition-all duration-300 border border-white/5">
+                <summary class="p-6 flex justify-between items-center cursor-pointer list-none hover:bg-white/5 transition">
+                    <span class="font-bold text-lg tracking-tight">¿En cuántos dispositivos puedo verlo?</span>
+                    <i class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"></i>
+                </summary>
+                <div class="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5">
+                    Depende de tu plan. El plan Mensual permite 1 pantalla, el Trimestral 2 pantallas y nuestro **Plan Anual VIP** permite hasta 3 pantallas simultáneas para que lo disfrute toda la familia.
+                </div>
+            </details>
+
+            <details class="glass group rounded-3xl overflow-hidden transition-all duration-300 border border-white/5">
+                <summary class="p-6 flex justify-between items-center cursor-pointer list-none hover:bg-white/5 transition">
+                    <span class="font-bold text-lg tracking-tight">¿Tengo que pagar la suscripción de Plex o Emby?</span>
+                    <i class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"></i>
+                </summary>
+                <div class="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5">
+                    **No.** Con ChurraTV no necesitas pagar el "Plex Pass" ni "Emby Premiere" para disfrutar de nuestro contenido. Nosotros te damos el acceso completo.
+                </div>
+            </details>
         </div>
     </section>
 
-    <section class="py-12 bg-[#0d121f]">
-        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6">
-            <div class="glass p-8 rounded-3xl text-center">
-                <h3 class="text-gray-400 text-xs font-bold uppercase mb-4">1 Mes</h3>
-                <div class="text-5xl font-black mb-6 text-white">6€</div>
-                <a href="#" class="tg-link block w-full py-3 rounded-xl font-bold border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition">Comprar</a>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center border-2 border-green-500 scale-105 bg-green-500/[0.05]">
-                <h3 class="text-white text-xs font-bold uppercase mb-4">12 Meses (VIP)</h3>
-                <div class="text-5xl font-black mb-6 text-white">16€</div>
-                <a href="#" class="tg-link block w-full py-3 telegram-blue rounded-xl font-bold text-white shadow-lg">Comprar ahora</a>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center">
-                <h3 class="text-gray-400 text-xs font-bold uppercase mb-4">3 Meses</h3>
-                <div class="text-5xl font-black mb-6 text-white">10€</div>
-                <a href="#" class="tg-link block w-full py-3 rounded-xl font-bold border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition text-center">Comprar</a>
-            </div>
+    <footer class="py-16 text-center border-t border-white/5">
+        <h3 class="churra-gold font-black text-2xl italic mb-4 uppercase">ChurraTV</h3>
+        <p class="text-gray-500 text-sm mb-8 uppercase tracking-widest font-bold">Solicita tu acceso inmediato:</p>
+        <div class="flex justify-center">
+            <a href="#" class="tg-link telegram-blue text-white px-10 py-4 rounded-2xl font-bold btn-hover flex items-center shadow-xl">
+                <i class="fab fa-telegram mr-3 text-2xl"></i> Telegram Soporte
+            </a>
         </div>
-    </section>
-
-    <footer class="py-12 text-center text-gray-600 text-xs">
-        <p>Aceptamos Revolut, Visa y Mastercard vía @Revtag.</p>
-        <p class="mt-2 font-bold tracking-widest">EMBY PREMIUM &copy; 2026</p>
+        <p class="mt-12 text-[10px] text-gray-700 uppercase tracking-[0.4em]">&copy; 2026 CHURRA TV PREMIUM</p>
     </footer>
 
 </body>
 </html>
-
