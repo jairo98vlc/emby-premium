@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Stream | Tu Servidor Emby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: white; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        .emby-green { color: #52b54b; }
+        .btn-emby { background-color: #52b54b; transition: 0.3s; }
+        .btn-emby:hover { background-color: #45a03e; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
+        <h1 class="text-2xl font-bold emby-green">EMBY<span class="text-white">PREMIUM</span></h1>
+        <div class="space-x-6">
+            <a href="#planes" class="hover:text-green-400">Planes</a>
+            <a href="https://wa.me/tu-numero" class="btn-emby px-5 py-2 rounded-full font-bold">Demo Gratis</a>
+        </div>
+    </nav>
+
+    <section class="py-20 text-center px-4">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-6">El cine en tu casa, <br><span class="emby-green">sin límites.</span></h2>
+        <p class="text-gray-400 text-xl mb-10 max-w-2xl mx-auto">Accede a miles de películas, series y documentales en 4K. Compatible con todos tus dispositivos.</p>
+        <img src="https://emby.media/community/uploads/monthly_2018_07/5b589f815124b_EmbyCatalog.png.0322d8616149174dfb24c138244b413c.png" alt="Emby Preview" class="mx-auto rounded-lg shadow-2xl border border-gray-700 max-w-full h-auto">
+    </section>
+
+    <section id="planes" class="py-20 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-12">Elige tu Plan</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="glass p-8 rounded-2xl border border-gray-700 text-center">
+                    <h4 class="text-xl mb-4">Mensual</h4>
+                    <p class="text-4xl font-bold mb-6">$10 <span class="text-sm text-gray-400">/mes</span></p>
+                    <ul class="text-gray-400 mb-8 space-y-2 text-sm">
+                        <li>✅ 1 Pantalla</li>
+                        <li>✅ Contenido 4K/HDR</li>
+                        <li>✅ Soporte 24/7</li>
+                    </ul>
+                    <a href="#" class="block btn-emby py-3 rounded-xl font-bold">Comprar Ahora</a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl border-2 border-green-500 text-center relative">
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 px-4 py-1 rounded-full text-xs font-bold">MÁS POPULAR</span>
+                    <h4 class="text-xl mb-4">Trimestral</h4>
+                    <p class="text-4xl font-bold mb-6">$25 <span class="text-sm text-gray-400">/3 meses</span></p>
+                    <ul class="text-gray-400 mb-8 space-y-2 text-sm">
+                        <li>✅ 2 Pantallas</li>
+                        <li>✅ Contenido 4K/HDR</li>
+                        <li>✅ Actualizaciones diarias</li>
+                    </ul>
+                    <a href="#" class="block btn-emby py-3 rounded-xl font-bold">Comprar Ahora</a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl border border-gray-700 text-center">
+                    <h4 class="text-xl mb-4">Anual</h4>
+                    <p class="text-4xl font-bold mb-6">$80 <span class="text-sm text-gray-400">/año</span></p>
+                    <ul class="text-gray-400 mb-8 space-y-2 text-sm">
+                        <li>✅ 3 Pantallas</li>
+                        <li>✅ Todo el catálogo</li>
+                        <li>✅ Mejor precio</li>
+                    </ul>
+                    <a href="#" class="block btn-emby py-3 rounded-xl font-bold">Comprar Ahora</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 TuMarca Emby. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
