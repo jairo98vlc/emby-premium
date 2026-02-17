@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChurraTV | El Universo del Entretenimiento</title>
+    <title>ChurraTV | Emby & Plex Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
-        // ==========================================
-        // CONFIGURACIÓN:
-        const USUARIO_TELEGRAM = 'magoslunas'; // Tu alias de Telegram sin @
-        // ==========================================
+        // CONFIGURACIÓN DE TU TELEGRAM
+        const USUARIO_TELEGRAM = 'TU_USUARIO_TG'; 
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.tg-link').forEach(link => {
@@ -24,7 +22,6 @@
         :root {
             --netflix-red: #e50914;
             --netflix-black: #000000;
-            --netflix-dark-gray: #181818;
         }
         
         body { 
@@ -34,9 +31,8 @@
             scroll-behavior: smooth;
         }
 
-        /* Fondo estilo Netflix con imagen de posters difuminada */
         .netflix-hero {
-            background: linear-gradient(to top, var(--netflix-black) 10%, rgba(0,0,0,0.6) 50%, var(--netflix-black) 100%),
+            background: linear-gradient(to top, var(--netflix-black) 15%, rgba(0,0,0,0.4) 50%, var(--netflix-black) 100%),
                         url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bca1-07e3f8eb1468/a2482365-1d60-466d-9614-7227fa30852e/ES-es-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg');
             background-size: cover;
             background-position: center;
@@ -44,135 +40,147 @@
 
         .btn-netflix {
             background-color: var(--netflix-red);
-            color: white;
-            transition: background 0.2s ease;
+            transition: transform 0.2s ease, background 0.2s ease;
         }
         .btn-netflix:hover {
             background-color: #f6121d;
+            transform: scale(1.05);
         }
 
-        .card-netflix {
-            background-color: var(--netflix-dark-gray);
-            border-radius: 8px;
+        .card-plan {
+            background-color: #181818;
+            border-bottom: 4px solid #333;
             transition: transform 0.3s ease;
         }
-        .card-netflix:hover {
-            transform: scale(1.05);
-            z-index: 10;
+        .card-plan:hover {
+            transform: scale(1.03);
+            border-color: var(--netflix-red);
+        }
+
+        .border-divider {
+            border-bottom: 8px solid #222;
         }
 
         details summary::-webkit-details-marker { display: none; }
-        
-        .border-netflix {
-            border-bottom: 8px solid #222;
-        }
     </style>
 </head>
 <body>
 
     <nav class="relative z-10 p-6 flex justify-between items-center max-w-7xl mx-auto">
-        <h1 class="text-4xl font-black text-[#e50914] tracking-tighter uppercase">Churra<span class="text-white">TV</span></h1>
-        <a href="#" class="tg-link btn-netflix px-6 py-2 rounded font-bold text-sm uppercase">Soporte</a>
+        <h1 class="text-3xl md:text-4xl font-black text-[#e50914] tracking-tighter uppercase italic">Churra<span class="text-white">TV</span></h1>
+        <a href="#" class="tg-link btn-netflix px-5 py-2 rounded text-xs font-bold uppercase tracking-widest text-white decoration-none">Soporte</a>
     </nav>
 
-    <header class="netflix-hero min-h-[80vh] flex items-center justify-center text-center px-4">
-        <div class="max-w-4xl">
-            <h2 class="text-5xl md:text-7xl font-bold mb-4">Películas y series ilimitadas y mucho más.</h2>
-            <p class="text-xl md:text-2xl mb-8">Disfruta donde quieras en Emby o Plex. Cancela cuando quieras.</p>
-            <p class="text-lg mb-6">¿Quieres ver algo ya? Haz clic para probar nuestra demo gratuita.</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#planes" class="btn-netflix px-12 py-5 text-2xl font-bold rounded flex items-center">
-                    VER PLANES <i class="fas fa-chevron-right ml-4 text-xl"></i>
+    <header class="netflix-hero min-h-[70vh] flex items-center justify-center text-center px-4">
+        <div class="max-w-3xl">
+            <h2 class="text-4xl md:text-7xl font-bold mb-6 leading-tight">Películas y series sin límites.</h2>
+            <p class="text-xl md:text-2xl mb-8 font-light">Disponible en Emby y Plex. Calidad 4K garantizada.</p>
+            <div class="flex justify-center">
+                <a href="#planes" class="btn-netflix px-10 py-5 text-xl font-bold rounded flex items-center text-white decoration-none uppercase">
+                    Ver planes <i class="fas fa-chevron-right ml-4 text-lg"></i>
                 </a>
             </div>
         </div>
     </header>
 
-    <div class="border-netflix"></div>
+    <div class="border-divider"></div>
 
-    <section id="planes" class="py-20 px-4 bg-black">
-        <h3 class="text-3xl md:text-5xl font-bold text-center mb-16 italic">Elige el plan ideal para ti</h3>
+    <section id="planes" class="py-24 px-4 bg-black">
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             
-            <div class="card-netflix p-8 flex flex-col items-center border-b-4 border-gray-600">
-                <h4 class="text-2xl font-bold mb-4">Básico</h4>
-                <div class="text-5xl font-black mb-6">6€<span class="text-lg font-light text-gray-400">/mes</span></div>
-                <ul class="text-gray-300 space-y-4 mb-10 text-center flex-grow">
-                    <li>Calidad de video: <span class="text-white font-bold italic">Buena (4K)</span></li>
-                    <li>Resolución: <span class="text-white font-bold italic">2160p</span></li>
-                    <li>Dispositivos: <span class="text-white font-bold italic text-xl">1</span></li>
-                </ul>
-                <a href="#" class="tg-link btn-netflix w-full py-3 rounded font-bold uppercase tracking-widest text-center">Contratar</a>
+            <div class="card-plan p-10 flex flex-col items-center">
+                <h4 class="text-xl font-bold mb-2 text-gray-400">PLAN BÁSICO</h4>
+                <div class="text-6xl font-black mb-10 italic">6€</div>
+                <div class="space-y-6 mb-12 text-center w-full">
+                    <div class="border-t border-white/10 pt-4">
+                        <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Calidad</p>
+                        <p class="text-xl font-bold">4K HDR</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4">
+                        <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Conexiones</p>
+                        <p class="text-xl font-bold text-[#e50914]">1 Dispositivo</p>
+                    </div>
+                </div>
+                <a href="#" class="tg-link btn-netflix w-full py-3 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none">Contratar</a>
             </div>
 
-            <div class="card-netflix p-8 flex flex-col items-center border-b-4 border-[#e50914] relative transform scale-105 shadow-2xl">
-                <div class="absolute -top-4 bg-[#e50914] px-4 py-1 text-xs font-bold uppercase rounded">Más popular</div>
-                <h4 class="text-2xl font-bold mb-4">Premium VIP</h4>
-                <div class="text-5xl font-black mb-6">16€<span class="text-lg font-light text-gray-400">/12 meses</span></div>
-                <ul class="text-white space-y-4 mb-10 text-center flex-grow">
-                    <li>Calidad de video: <span class="text-white font-bold italic">Óptima (4K+HDR)</span></li>
-                    <li>Resolución: <span class="text-white font-bold italic">4K UHD</span></li>
-                    <li>Dispositivos: <span class="text-white font-bold italic text-xl">3</span></li>
-                    <li>Acceso: <span class="text-white font-bold italic">Emby & Plex</span></li>
-                </ul>
-                <a href="#" class="tg-link btn-netflix w-full py-4 rounded font-bold uppercase tracking-widest text-center">¡Mejor Oferta!</a>
+            <div class="card-plan p-10 flex flex-col items-center border-b-4 border-[#e50914] relative scale-105 shadow-2xl bg-[#1f1f1f]">
+                <span class="absolute -top-4 bg-[#e50914] px-4 py-1 text-[10px] font-black uppercase rounded tracking-tighter italic">Sugerencia de ChurraTV</span>
+                <h4 class="text-xl font-bold mb-2 text-white">PLAN ANUAL VIP</h4>
+                <div class="text-7xl font-black mb-10 italic text-[#e50914]">16€</div>
+                <div class="space-y-6 mb-12 text-center w-full">
+                    <div class="border-t border-white/20 pt-4">
+                        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Calidad</p>
+                        <p class="text-xl font-bold">Ultra HD 4K+</p>
+                    </div>
+                    <div class="border-t border-white/20 pt-4">
+                        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Conexiones</p>
+                        <p class="text-xl font-bold text-[#e50914]">3 Dispositivos</p>
+                    </div>
+                </div>
+                <a href="#" class="tg-link btn-netflix w-full py-4 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none">¡Mejor Oferta!</a>
             </div>
 
-            <div class="card-netflix p-8 flex flex-col items-center border-b-4 border-gray-600">
-                <h4 class="text-2xl font-bold mb-4">Estándar</h4>
-                <div class="text-5xl font-black mb-6">10€<span class="text-lg font-light text-gray-400">/3 meses</span></div>
-                <ul class="text-gray-300 space-y-4 mb-10 text-center flex-grow">
-                    <li>Calidad de video: <span class="text-white font-bold italic">Muy Buena</span></li>
-                    <li>Resolución: <span class="text-white font-bold italic">4K</span></li>
-                    <li>Dispositivos: <span class="text-white font-bold italic text-xl">2</span></li>
-                </ul>
-                <a href="#" class="tg-link btn-netflix w-full py-3 rounded font-bold uppercase tracking-widest text-center">Contratar</a>
+            <div class="card-plan p-10 flex flex-col items-center">
+                <h4 class="text-xl font-bold mb-2 text-gray-400">PLAN TRIMESTRAL</h4>
+                <div class="text-6xl font-black mb-10 italic">10€</div>
+                <div class="space-y-6 mb-12 text-center w-full">
+                    <div class="border-t border-white/10 pt-4">
+                        <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Calidad</p>
+                        <p class="text-xl font-bold">4K HDR</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4">
+                        <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Conexiones</p>
+                        <p class="text-xl font-bold text-[#e50914]">2 Dispositivos</p>
+                    </div>
+                </div>
+                <a href="#" class="tg-link btn-netflix w-full py-3 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none text-center">Contratar</a>
             </div>
 
         </div>
     </section>
 
-    <div class="border-netflix"></div>
+    <div class="border-divider"></div>
 
-    <section class="py-20 max-w-4xl mx-auto px-6">
-        <h3 class="text-4xl md:text-5xl font-bold text-center mb-12 italic">Preguntas frecuentes</h3>
+    <section class="py-24 max-w-4xl mx-auto px-6">
+        <h3 class="text-4xl md:text-5xl font-bold text-center mb-16 italic">Preguntas frecuentes</h3>
         <div class="space-y-2">
             <details class="group">
-                <summary class="flex justify-between items-center p-6 text-xl md:text-2xl font-medium bg-[#303030] cursor-pointer list-none hover:bg-[#404040]">
+                <summary class="flex justify-between items-center p-6 text-xl md:text-2xl font-medium bg-[#2d2d2d] cursor-pointer list-none hover:bg-[#3d3d3d] transition">
                     ¿Qué es ChurraTV?
-                    <span class="text-4xl group-open:rotate-45 transition-transform">+</span>
+                    <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <div class="p-6 bg-[#303030] border-t border-black text-xl leading-relaxed">
-                    ChurraTV es un servicio de streaming privado que te permite ver miles de películas y series a través de las aplicaciones Emby y Plex. Sin anuncios, sin esperas y en la máxima calidad disponible.
+                <div class="p-8 bg-[#2d2d2d] border-t border-black text-lg md:text-xl leading-relaxed font-light text-gray-300">
+                    Es el servicio de streaming premium definitivo. Accede a través de Emby o Plex a una librería masiva de películas y series sin anuncios y con la mayor estabilidad del mercado.
                 </div>
             </details>
 
             <details class="group mt-2">
-                <summary class="flex justify-between items-center p-6 text-xl md:text-2xl font-medium bg-[#303030] cursor-pointer list-none hover:bg-[#404040]">
-                    ¿Dónde puedo ver ChurraTV?
-                    <span class="text-4xl group-open:rotate-45 transition-transform">+</span>
+                <summary class="flex justify-between items-center p-6 text-xl md:text-2xl font-medium bg-[#2d2d2d] cursor-pointer list-none hover:bg-[#3d3d3d] transition">
+                    ¿Cómo activo mi cuenta?
+                    <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <div class="p-6 bg-[#303030] border-t border-black text-xl leading-relaxed">
-                    Disfruta donde quieras y cuando quieras. Inicia sesión en tu cuenta de Emby o Plex para ver contenido al instante a través de tu Smart TV, computadora, móvil, tablet o consolas de videojuegos.
+                <div class="p-8 bg-[#2d2d2d] border-t border-black text-lg md:text-xl leading-relaxed font-light text-gray-300">
+                    Simplemente haz clic en contratar. Se abrirá nuestro soporte de Telegram donde te activaremos el acceso en menos de 5 minutos.
                 </div>
             </details>
         </div>
     </section>
 
-    <div class="border-netflix"></div>
+    <div class="border-divider"></div>
 
-    <footer class="py-20 px-6 max-w-6xl mx-auto text-gray-500">
-        <p class="mb-8">¿Tienes dudas? Contáctanos por Telegram</p>
-        <div class="flex mb-12">
-            <a href="#" class="tg-link btn-netflix px-10 py-4 font-bold rounded uppercase">Hablar con Soporte</a>
+    <footer class="py-20 px-6 max-w-6xl mx-auto text-gray-500 text-center">
+        <p class="mb-10 text-lg">¿Listo para empezar? Contacta con nosotros.</p>
+        <div class="flex justify-center mb-16">
+            <a href="#" class="tg-link btn-netflix px-12 py-4 font-bold rounded uppercase text-white decoration-none tracking-widest">
+                <i class="fab fa-telegram-plane mr-3"></i> Telegram ChurraTV
+            </a>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm mb-12">
-            <span class="hover:underline cursor-pointer">Preguntas frecuentes</span>
-            <span class="hover:underline cursor-pointer">Términos de uso</span>
-            <span class="hover:underline cursor-pointer">Privacidad</span>
-            <span class="hover:underline cursor-pointer">Prueba de velocidad</span>
+        <div class="flex justify-center items-center space-x-8 opacity-30 grayscale mb-10">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Emby_logo.svg" class="h-6" alt="Emby">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Plex_logo.svg" class="h-6" alt="Plex">
         </div>
-        <p class="text-sm font-bold tracking-widest text-[#e50914] uppercase">ChurraTV España</p>
+        <p class="text-xs font-black tracking-[0.5em] text-[#e50914] uppercase">ChurraTV Media Server &copy; 2026</p>
     </footer>
 
 </body>
