@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
-        // CONFIGURACIÓN DE TU TELEGRAM
-        const USUARIO_TELEGRAM = 'magoslunas'; 
+        // CONFIGURACIÓN DE TU WHATSAPP
+        // Escribe tu número seguido (ej: 34600000000) sin espacios ni el signo +
+        const TELEFONO_WHATSAPP = '34614218113'; 
 
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.tg-link').forEach(link => {
-                link.href = `https://t.me/${USUARIO_TELEGRAM}`;
+            const links = document.querySelectorAll('.wa-link');
+            links.forEach(link => {
+                // Mensaje automático para el chat
+                const mensaje = encodeURIComponent("Hola ChurraTV, me gustaría contratar un plan de streaming.");
+                link.href = `https://wa.me/${TELEFONO_WHATSAPP}?text=${mensaje}`;
             });
         });
     </script>
@@ -68,13 +72,15 @@
 
     <nav class="relative z-10 p-6 flex justify-between items-center max-w-7xl mx-auto">
         <h1 class="text-3xl md:text-4xl font-black text-[#e50914] tracking-tighter uppercase italic">Churra<span class="text-white">TV</span></h1>
-        <a href="#" class="tg-link btn-netflix px-5 py-2 rounded text-xs font-bold uppercase tracking-widest text-white decoration-none">Soporte</a>
+        <a href="#" class="wa-link btn-netflix px-5 py-2 rounded text-xs font-bold uppercase tracking-widest text-white decoration-none">
+            <i class="fab fa-whatsapp mr-2"></i> Soporte
+        </a>
     </nav>
 
     <header class="netflix-hero min-h-[70vh] flex items-center justify-center text-center px-4">
         <div class="max-w-3xl">
-            <h2 class="text-4xl md:text-7xl font-bold mb-6 leading-tight">Películas y series sin límites.</h2>
-            <p class="text-xl md:text-2xl mb-8 font-light">Disponible en Emby y Plex. Calidad 4K garantizada.</p>
+            <h2 class="text-4xl md:text-7xl font-bold mb-6 leading-tight text-white">Películas y series sin límites.</h2>
+            <p class="text-xl md:text-2xl mb-8 font-light text-gray-200">Disponible en Emby y Plex. Calidad 4K garantizada.</p>
             <div class="flex justify-center">
                 <a href="#planes" class="btn-netflix px-10 py-5 text-xl font-bold rounded flex items-center text-white decoration-none uppercase">
                     Ver planes <i class="fas fa-chevron-right ml-4 text-lg"></i>
@@ -89,7 +95,7 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             
             <div class="card-plan p-10 flex flex-col items-center">
-                <h4 class="text-xl font-bold mb-2 text-gray-400">PLAN BÁSICO</h4>
+                <h4 class="text-xl font-bold mb-2 text-gray-400 uppercase">Plan Básico</h4>
                 <div class="text-6xl font-black mb-10 italic">6€</div>
                 <div class="space-y-6 mb-12 text-center w-full">
                     <div class="border-t border-white/10 pt-4">
@@ -101,28 +107,28 @@
                         <p class="text-xl font-bold text-[#e50914]">1 Dispositivo</p>
                     </div>
                 </div>
-                <a href="#" class="tg-link btn-netflix w-full py-3 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none">Contratar</a>
+                <a href="#" class="wa-link btn-netflix w-full py-3 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none">Contratar</a>
             </div>
 
             <div class="card-plan p-10 flex flex-col items-center border-b-4 border-[#e50914] relative scale-105 shadow-2xl bg-[#1f1f1f]">
-                <span class="absolute -top-4 bg-[#e50914] px-4 py-1 text-[10px] font-black uppercase rounded tracking-tighter italic">Sugerencia de ChurraTV</span>
-                <h4 class="text-xl font-bold mb-2 text-white">PLAN ANUAL VIP</h4>
+                <span class="absolute -top-4 bg-[#e50914] text-white px-4 py-1 text-[10px] font-black uppercase rounded tracking-tighter italic">Recomendado</span>
+                <h4 class="text-xl font-bold mb-2 text-white uppercase">Plan Anual VIP</h4>
                 <div class="text-7xl font-black mb-10 italic text-[#e50914]">16€</div>
                 <div class="space-y-6 mb-12 text-center w-full">
                     <div class="border-t border-white/20 pt-4">
                         <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Calidad</p>
-                        <p class="text-xl font-bold">Ultra HD 4K+</p>
+                        <p class="text-xl font-bold text-white">Ultra HD 4K+</p>
                     </div>
                     <div class="border-t border-white/20 pt-4">
                         <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Conexiones</p>
                         <p class="text-xl font-bold text-[#e50914]">3 Dispositivos</p>
                     </div>
                 </div>
-                <a href="#" class="tg-link btn-netflix w-full py-4 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none">¡Mejor Oferta!</a>
+                <a href="#" class="wa-link btn-netflix w-full py-4 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none">¡Mejor Oferta!</a>
             </div>
 
             <div class="card-plan p-10 flex flex-col items-center">
-                <h4 class="text-xl font-bold mb-2 text-gray-400">PLAN TRIMESTRAL</h4>
+                <h4 class="text-xl font-bold mb-2 text-gray-400 uppercase">Plan Trimestral</h4>
                 <div class="text-6xl font-black mb-10 italic">10€</div>
                 <div class="space-y-6 mb-12 text-center w-full">
                     <div class="border-t border-white/10 pt-4">
@@ -134,7 +140,7 @@
                         <p class="text-xl font-bold text-[#e50914]">2 Dispositivos</p>
                     </div>
                 </div>
-                <a href="#" class="tg-link btn-netflix w-full py-3 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none text-center">Contratar</a>
+                <a href="#" class="wa-link btn-netflix w-full py-3 rounded font-bold uppercase text-xs tracking-widest text-center text-white decoration-none">Contratar</a>
             </div>
 
         </div>
@@ -144,7 +150,7 @@
 
     <section class="py-24 max-w-4xl mx-auto px-6">
         <h3 class="text-4xl md:text-5xl font-bold text-center mb-16 italic">Preguntas frecuentes</h3>
-        <div class="space-y-2">
+        <div class="space-y-2 text-white">
             <details class="group">
                 <summary class="flex justify-between items-center p-6 text-xl md:text-2xl font-medium bg-[#2d2d2d] cursor-pointer list-none hover:bg-[#3d3d3d] transition">
                     ¿Qué es ChurraTV?
@@ -161,7 +167,7 @@
                     <span class="text-4xl font-light group-open:rotate-45 transition-transform">+</span>
                 </summary>
                 <div class="p-8 bg-[#2d2d2d] border-t border-black text-lg md:text-xl leading-relaxed font-light text-gray-300">
-                    Simplemente haz clic en contratar. Se abrirá nuestro soporte de Telegram donde te activaremos el acceso en menos de 5 minutos.
+                    Es muy sencillo. Haz clic en el botón de contratar y se abrirá nuestro WhatsApp de soporte. Te activaremos el acceso en menos de 5 minutos tras verificar el pago.
                 </div>
             </details>
         </div>
@@ -170,19 +176,18 @@
     <div class="border-divider"></div>
 
     <footer class="py-20 px-6 max-w-6xl mx-auto text-gray-500 text-center">
-        <p class="mb-10 text-lg">¿Listo para empezar? Contacta con nosotros.</p>
+        <p class="mb-10 text-lg">¿Listo para empezar? Contáctanos por WhatsApp.</p>
         <div class="flex justify-center mb-16">
-            <a href="#" class="tg-link btn-netflix px-12 py-4 font-bold rounded uppercase text-white decoration-none tracking-widest">
-                <i class="fab fa-telegram-plane mr-3"></i> Telegram ChurraTV
+            <a href="#" class="wa-link btn-netflix px-12 py-4 font-bold rounded uppercase text-white decoration-none tracking-widest">
+                <i class="fab fa-whatsapp mr-3 text-xl"></i> WhatsApp ChurraTV
             </a>
         </div>
         <div class="flex justify-center items-center space-x-8 opacity-30 grayscale mb-10">
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Emby_logo.svg" class="h-6" alt="Emby">
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Plex_logo.svg" class="h-6" alt="Plex">
         </div>
-        <p class="text-xs font-black tracking-[0.5em] text-[#e50914] uppercase">ChurraTV Media Server &copy; 2026</p>
+        <p class="text-xs font-black tracking-[0.5em] text-[#e50914] uppercase italic">ChurraTV Media Server &copy; 2026</p>
     </footer>
 
 </body>
 </html>
-
