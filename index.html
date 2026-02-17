@@ -25,130 +25,147 @@
             --emby-green: #52b54b;
             --plex-orange: #e5a00d;
             --dark-bg: #060a12;
+            --text-main: #ffffff;
+            --text-muted: #cbd5e1; /* Gris claro para mejor lectura */
         }
-        body { background-color: var(--dark-bg); color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--dark-bg); color: var(--text-main); font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
         
-        /* Fondo con degradado tipo plataforma de cine */
         .hero-gradient {
-            background: radial-gradient(circle at top right, rgba(82, 181, 75, 0.08), transparent),
-                        radial-gradient(circle at bottom left, rgba(229, 160, 13, 0.05), transparent);
+            background: radial-gradient(circle at top right, rgba(82, 181, 75, 0.12), transparent),
+                        radial-gradient(circle at bottom left, rgba(229, 160, 13, 0.08), transparent);
         }
 
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass { background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
         
-        .btn-emby { background-color: var(--emby-green); color: white; transition: 0.3s; }
-        .btn-emby:hover { background-color: #45a03e; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(82, 181, 75, 0.3); }
+        .btn-emby { background-color: var(--emby-green); color: white; transition: all 0.3s ease; }
+        .btn-emby:hover { background-color: #4dbb45; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(82, 181, 75, 0.3); }
         
-        .btn-plex { background-color: var(--plex-orange); color: black; transition: 0.3s; }
-        .btn-plex:hover { background-color: #cc8e0c; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(229, 160, 13, 0.3); }
+        .btn-plex { background-color: var(--plex-orange); color: #000; transition: all 0.3s ease; }
+        .btn-plex:hover { background-color: #f0a80e; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(229, 160, 13, 0.3); }
 
-        .text-emby { color: var(--emby-green); }
-        .text-plex { color: var(--plex-orange); }
+        .text-muted { color: var(--text-muted); }
+        .churra-gold { color: #fbbf24; }
 
         details summary::-webkit-details-marker { display: none; }
+        
+        /* Mejora de legibilidad en móviles */
+        @media (max-width: 640px) {
+            .text-huge { font-size: 3rem; line-height: 1; }
+        }
     </style>
 </head>
-<body class="hero-gradient">
+<body class="hero-gradient min-h-screen">
 
-    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto border-b border-white/5">
-        <h1 class="text-2xl font-black tracking-tighter">CHURRA<span class="text-emby">TV</span></h1>
-        <div class="flex items-center space-x-4">
-            <i class="fab fa-unity text-xl text-emby opacity-80" title="Emby"></i>
-            <i class="fas fa-play-circle text-xl text-plex opacity-80" title="Plex"></i>
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
+        <h1 class="text-3xl font-black tracking-tighter italic">CHURRA<span class="text-[#52b54b]">TV</span></h1>
+        <div class="flex items-center space-x-5">
+            <span class="hidden sm:inline text-xs font-bold tracking-widest text-muted uppercase">Premium Streaming</span>
+            <a href="#" class="tg-link telegram-blue bg-[#0088cc] px-5 py-2 rounded-full font-bold text-sm flex items-center hover:brightness-110 transition">
+                <i class="fab fa-telegram-plane mr-2"></i> SOPORTE
+            </a>
         </div>
     </nav>
 
-    <section class="py-20 text-center px-4">
-        <div class="flex justify-center space-x-4 mb-6">
-            <span class="text-[10px] font-bold bg-white/5 border border-white/10 px-3 py-1 rounded text-emby">EMBY SERVER</span>
-            <span class="text-[10px] font-bold bg-white/5 border border-white/10 px-3 py-1 rounded text-plex">PLEX MEDIA</span>
+    <section class="py-16 md:py-28 text-center px-4">
+        <div class="flex justify-center space-x-3 mb-8">
+            <span class="bg-white/10 text-white px-4 py-1.5 rounded-md text-[11px] font-black uppercase tracking-wider border border-white/10">Emby Server</span>
+            <span class="bg-white/10 text-white px-4 py-1.5 rounded-md text-[11px] font-black uppercase tracking-wider border border-white/10">Plex Media</span>
         </div>
-        <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter leading-none">Tu biblioteca <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-yellow-500">en máxima calidad.</span></h2>
-        <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto font-light">Disfruta de ChurraTV en la plataforma que más te guste. Estrenos en 4K HDR actualizados cada 24 horas.</p>
-        <div class="flex justify-center gap-4">
-            <a href="#planes" class="btn-emby px-8 py-4 rounded-lg font-bold">Ver Suscripciones</a>
-            <a href="#" class="tg-link border border-white/10 px-8 py-4 rounded-lg font-bold hover:bg-white/5 transition">Demo 2h Gratis</a>
-        </div>
-    </section>
-
-    <section id="planes" class="py-20">
-        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
-            <div class="glass p-8 rounded-2xl flex flex-col">
-                <h3 class="text-gray-500 text-xs font-bold uppercase mb-2">Suscripción</h3>
-                <span class="text-2xl font-bold mb-6">Mensual</span>
-                <div class="text-5xl font-black mb-8 italic">6€</div>
-                <ul class="text-sm text-gray-400 space-y-4 mb-10 flex-grow">
-                    <li><i class="fas fa-check text-emby mr-2"></i> 1 Dispositivo</li>
-                    <li><i class="fas fa-check text-emby mr-2"></i> Catálogo Emby o Plex</li>
-                    <li><i class="fas fa-check text-emby mr-2"></i> Calidad 4K / HDR</li>
-                </ul>
-                <a href="#" class="tg-link block w-full py-3 rounded-lg font-bold border border-white/10 text-center hover:bg-white/5 transition">Elegir Plan</a>
-            </div>
-
-            <div class="glass p-8 rounded-2xl border-2 border-emby relative scale-105 shadow-2xl shadow-green-500/10">
-                <span class="absolute -top-3 left-6 bg-emby text-white px-3 py-1 rounded text-[10px] font-black uppercase">Más popular</span>
-                <h3 class="text-gray-400 text-xs font-bold uppercase mb-2">Suscripción</h3>
-                <span class="text-2xl font-bold mb-6">Anual VIP</span>
-                <div class="text-5xl font-black mb-8 italic text-emby">16€</div>
-                <ul class="text-sm text-gray-100 space-y-4 mb-10 flex-grow">
-                    <li><i class="fas fa-star text-plex mr-2"></i> 3 Dispositivos simultáneos</li>
-                    <li><i class="fas fa-star text-plex mr-2"></i> Emby + Plex Incluidos</li>
-                    <li><i class="fas fa-star text-plex mr-2"></i> Soporte Prioritario 24/7</li>
-                </ul>
-                <a href="#" class="tg-link block w-full py-4 btn-emby rounded-lg font-bold text-center">Activar VIP</a>
-            </div>
-
-            <div class="glass p-8 rounded-2xl flex flex-col">
-                <h3 class="text-gray-500 text-xs font-bold uppercase mb-2">Suscripción</h3>
-                <span class="text-2xl font-bold mb-6">Trimestral</span>
-                <div class="text-5xl font-black mb-8 italic">10€</div>
-                <ul class="text-sm text-gray-400 space-y-4 mb-10 flex-grow">
-                    <li><i class="fas fa-check text-emby mr-2"></i> 2 Dispositivos</li>
-                    <li><i class="fas fa-check text-emby mr-2"></i> Acceso Total</li>
-                    <li><i class="fas fa-check text-emby mr-2"></i> Estrenos diarios</li>
-                </ul>
-                <a href="#" class="tg-link block w-full py-3 rounded-lg font-bold border border-white/10 text-center hover:bg-white/5 transition text-center">Elegir Plan</a>
-            </div>
+        <h2 class="text-huge text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[1.1]">
+            El cine que mereces, <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#52b54b] to-[#fbbf24]">sin esperas.</span>
+        </h2>
+        <p class="text-muted text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+            Accede a la mayor librería de contenido en 4K HDR. <br class="hidden md:block"> 
+            Instalación rápida en Smart TV, Móvil, PC y Consolas.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-5">
+            <a href="#planes" class="btn-emby px-10 py-5 rounded-2xl font-bold text-lg">Ver Planes y Precios</a>
+            <a href="#" class="tg-link glass px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/10 transition">Probar Demo Gratis</a>
         </div>
     </section>
 
-    <section id="faq" class="py-20 max-w-3xl mx-auto px-6">
-        <h3 class="text-3xl font-black mb-12 text-center">Preguntas Frecuentes</h3>
-        <div class="space-y-4">
-            <details class="glass group rounded-xl overflow-hidden">
-                <summary class="p-6 flex justify-between items-center cursor-pointer list-none hover:bg-white/5 transition">
-                    <span class="font-bold">¿Cómo recibo mi acceso?</span>
-                    <i class="fas fa-plus text-plex group-open:rotate-45 transition"></i>
+    <section id="planes" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            
+            <div class="glass p-10 rounded-[2.5rem] flex flex-col items-center">
+                <h3 class="text-muted text-xs font-black uppercase tracking-[0.2em] mb-4">Suscripción</h3>
+                <span class="text-2xl font-bold mb-2 text-white">Mensual</span>
+                <div class="text-6xl font-black mb-8 italic churra-gold">6€</div>
+                <ul class="text-muted space-y-4 mb-10 w-full text-left font-medium text-sm">
+                    <li class="flex items-center"><i class="fas fa-check text-[#52b54b] mr-3"></i> 1 Dispositivo</li>
+                    <li class="flex items-center"><i class="fas fa-check text-[#52b54b] mr-3"></i> Catálogo Emby o Plex</li>
+                    <li class="flex items-center"><i class="fas fa-check text-[#52b54b] mr-3"></i> Calidad Ultra HD 4K</li>
+                </ul>
+                <a href="#" class="tg-link block w-full py-4 rounded-xl font-black border-2 border-white/10 text-center hover:bg-white/5 hover:border-white/30 transition uppercase text-xs tracking-widest">Elegir este plan</a>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] border-2 border-[#52b54b] relative scale-105 shadow-2xl shadow-[#52b54b]/10 flex flex-col items-center">
+                <span class="absolute -top-4 bg-[#52b54b] text-white px-5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-tighter">🔥 RECOMENDADO</span>
+                <h3 class="text-white text-xs font-black uppercase tracking-[0.2em] mb-4">Suscripción</h3>
+                <span class="text-2xl font-bold mb-2 text-white">Anual VIP</span>
+                <div class="text-7xl font-black mb-8 italic text-[#52b54b]">16€</div>
+                <ul class="text-white space-y-4 mb-10 w-full text-left font-semibold text-sm">
+                    <li class="flex items-center"><i class="fas fa-star text-[#fbbf24] mr-3"></i> 3 Dispositivos simultáneos</li>
+                    <li class="flex items-center"><i class="fas fa-star text-[#fbbf24] mr-3"></i> Acceso Emby + Plex</li>
+                    <li class="flex items-center"><i class="fas fa-star text-[#fbbf24] mr-3"></i> Soporte Prioritario 24/7</li>
+                </ul>
+                <a href="#" class="tg-link block w-full py-5 btn-emby rounded-xl font-black text-center uppercase text-sm tracking-widest">Activar Acceso VIP</a>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] flex flex-col items-center">
+                <h3 class="text-muted text-xs font-black uppercase tracking-[0.2em] mb-4">Suscripción</h3>
+                <span class="text-2xl font-bold mb-2 text-white">Trimestral</span>
+                <div class="text-6xl font-black mb-8 italic churra-gold">10€</div>
+                <ul class="text-muted space-y-4 mb-10 w-full text-left font-medium text-sm">
+                    <li class="flex items-center"><i class="fas fa-check text-[#52b54b] mr-3"></i> 2 Dispositivos</li>
+                    <li class="flex items-center"><i class="fas fa-check text-[#52b54b] mr-3"></i> Estrenos diarios</li>
+                    <li class="flex items-center"><i class="fas fa-check text-[#52b54b] mr-3"></i> Todo el catálogo</li>
+                </ul>
+                <a href="#" class="tg-link block w-full py-4 rounded-xl font-black border-2 border-white/10 text-center hover:bg-white/5 hover:border-white/30 transition uppercase text-xs tracking-widest text-center">Elegir este plan</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 max-w-3xl mx-auto px-6">
+        <h3 class="text-4xl font-black mb-16 text-center tracking-tight uppercase">Resuelve tus <span class="text-[#fbbf24]">dudas</span></h3>
+        <div class="space-y-5">
+            <details class="glass group rounded-2xl overflow-hidden">
+                <summary class="p-7 flex justify-between items-center cursor-pointer list-none hover:bg-white/5 transition">
+                    <span class="font-bold text-lg md:text-xl">¿Cómo recibo mi acceso tras pagar?</span>
+                    <i class="fas fa-plus text-[#fbbf24] group-open:rotate-45 transition"></i>
                 </summary>
-                <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5">
-                    Tras confirmar el pago por Telegram, te enviaremos una invitación a tu correo (Plex) o usuario/contraseña (Emby). La activación suele tardar menos de 5 minutos.
+                <div class="p-7 pt-0 text-muted text-md leading-relaxed border-t border-white/5 font-medium">
+                    Es inmediato. Al confirmar el pago en Telegram, te enviamos las credenciales personalizadas. Te guiaremos paso a paso para configurar la app en tu televisor o móvil.
                 </div>
             </details>
 
-            <details class="glass group rounded-xl overflow-hidden">
-                <summary class="p-6 flex justify-between items-center cursor-pointer list-none hover:bg-white/5 transition">
-                    <span class="font-bold">¿Necesito hardware potente?</span>
-                    <i class="fas fa-plus text-plex group-open:rotate-45 transition"></i>
+            <details class="glass group rounded-2xl overflow-hidden">
+                <summary class="p-7 flex justify-between items-center cursor-pointer list-none hover:bg-white/5 transition">
+                    <span class="font-bold text-lg md:text-xl">¿Qué velocidad de internet necesito?</span>
+                    <i class="fas fa-plus text-[#fbbf24] group-open:rotate-45 transition"></i>
                 </summary>
-                <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5">
-                    No. Nuestro servidor se encarga de todo el procesamiento. Solo necesitas una buena conexión a internet y la app de Emby o Plex instalada en tu dispositivo.
+                <div class="p-7 pt-0 text-muted text-md leading-relaxed border-t border-white/5 font-medium">
+                    Para contenido 4K HDR recomendamos al menos 25-30 Mbps de descarga estables. Si tienes menos, el sistema ajustará automáticamente la calidad para que no tengas parones.
                 </div>
             </details>
         </div>
     </section>
 
-    <footer class="py-20 text-center border-t border-white/5">
-        <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-8">Atención personalizada en Telegram</p>
-        <div class="flex justify-center">
-            <a href="#" class="tg-link btn-plex px-12 py-4 rounded-lg font-black uppercase tracking-tighter">
-                <i class="fab fa-telegram-plane mr-2"></i> Hablar con ChurraTV
+    <footer class="py-24 text-center border-t border-white/10 bg-black/20">
+        <h3 class="text-3xl font-black mb-4 italic tracking-tighter">CHURRA<span class="text-[#52b54b]">TV</span></h3>
+        <p class="text-muted text-sm font-bold uppercase tracking-[0.3em] mb-10">Activaciones 24/7 vía Telegram</p>
+        <div class="flex justify-center mb-16">
+            <a href="#" class="tg-link btn-plex px-14 py-5 rounded-2xl font-black uppercase text-sm tracking-widest shadow-xl">
+                <i class="fab fa-telegram-plane mr-3 text-xl"></i> Hablar con un agente
             </a>
         </div>
-        <div class="mt-16 flex justify-center space-x-8 opacity-30">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Emby_logo.svg" class="h-6" alt="Emby">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Plex_logo.svg" class="h-6" alt="Plex">
+        <div class="flex justify-center items-center space-x-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition duration-500">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Emby_logo.svg" class="h-8" alt="Emby">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Plex_logo.svg" class="h-8" alt="Plex">
         </div>
-        <p class="mt-12 text-[9px] text-gray-700 tracking-[0.5em]">&copy; 2026 CHURRATV MEDIA SERVER</p>
+        <p class="mt-16 text-[10px] text-gray-600 font-bold uppercase tracking-[0.5em]">&copy; 2026 CHURRATV MEDIA SERVER</p>
     </footer>
 
 </body>
