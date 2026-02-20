@@ -3,213 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChurraTV | Emby & Plex Premium</title>
+    <title>StreamMaster | Emby & Plex Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <script>
-        const USUARIO_TELEGRAM = 'magoslunas'; 
-
-        function showPage(pageId) {
-            document.querySelectorAll('.page-content').forEach(page => page.classList.add('hidden'));
-            document.getElementById(pageId).classList.remove('hidden');
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-white', 'border-b-2', 'border-[#e50914]');
-                btn.classList.add('text-gray-400');
-            });
-            event.currentTarget.classList.add('text-white', 'border-b-2', 'border-[#e50914]');
-            event.currentTarget.classList.remove('text-gray-400');
-            window.scrollTo(0, 0);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.tg-link').forEach(link => {
-                link.href = `https://t.me/${USUARIO_TELEGRAM}`;
-            });
-        });
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --n-red: #e50914; --n-black: #000000; }
-        body { background-color: var(--n-black); color: white; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; overflow-x: hidden; }
-        
-        /* Imagen de fondo profesional estilo Netflix */
-        .netflix-hero {
-            position: relative;
-            background-image: linear-gradient(to top, rgba(0,0,0,1) 10%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,1) 100%), 
-                              url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bca1-07e3f8eb1468/a2482365-1d60-466d-9614-7227fa30852e/ES-es-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg');
-            background-size: cover;
-            background-position: center;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, #1a1d29 0%, #040714 100%);
+            color: white;
         }
-
-        .btn-n { background-color: var(--n-red); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .btn-n:hover { background-color: #f6121d; transform: scale(1.05); box-shadow: 0 0 20px rgba(229, 9, 20, 0.4); }
-        
-        .card-plan { 
-            background: #121212; 
-            border: 1px solid #333;
-            border-radius: 8px;
-            transition: all 0.4s ease;
+        .disney-card {
+            background: linear-gradient(145deg, #30323e, #1e1f2a);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
-        .card-plan:hover { border-color: var(--n-red); background: #181818; transform: translateY(-5px); }
-        
-        .border-sep { border-bottom: 8px solid #232323; }
-        
-        .floating-badge {
-            background: linear-gradient(45deg, #e50914, #ff5e62);
-            animation: pulse 2s infinite;
+        .disney-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .faq-gradient {
+            background: rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen">
 
-    <nav class="sticky top-0 z-50 bg-black/95 px-6 py-4 flex justify-between items-center border-b border-white/5">
-        <div class="flex items-center gap-10">
-            <h1 class="text-3xl font-black text-[#e50914] tracking-tighter uppercase italic cursor-pointer">CHURRA<span class="text-white">TV</span></h1>
-            <div class="hidden md:flex space-x-6 text-[11px] font-bold uppercase tracking-[2px]">
-                <button onclick="showPage('sobre-nosotros')" class="nav-btn text-gray-400 hover:text-white transition">Nosotros</button>
-                <button onclick="showPage('planes')" class="nav-btn text-white border-b-2 border-[#e50914] pb-1 transition">Planes</button>
-                <button onclick="showPage('faq')" class="nav-btn text-gray-400 hover:text-white transition">FAQ</button>
-            </div>
+    <nav class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#040714]/80 backdrop-blur-md">
+        <h1 class="text-2xl font-bold tracking-widest text-blue-400">STREAM<span class="text-white">MASTER</span></h1>
+        <div class="space-x-6">
+            <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
+            <a href="#sobre-nosotros" class="hover:text-blue-400 transition">Nosotros</a>
+            <a href="#faq" class="hover:text-blue-400 transition">FAQ</a>
+            <a href="#" class="bg-blue-600 px-5 py-2 rounded font-bold hover:bg-blue-700 transition">INGRESAR</a>
         </div>
-        <a href="#" class="tg-link btn-n px-6 py-2 rounded-sm text-[11px] font-bold uppercase tracking-widest">Entrar</a>
     </nav>
 
-    <main id="planes" class="page-content">
-        <header class="netflix-hero h-[85vh] flex items-center justify-center text-center px-4">
-            <div class="max-w-4xl">
-                <div class="mb-4 text-[#e50914] text-3xl animate-bounce"><i class="fas fa-play-circle"></i></div>
-                <h2 class="text-5xl md:text-8xl font-black mb-6 tracking-tighter uppercase">Películas y series ilimitadas.</h2>
-                <p class="text-xl md:text-2xl mb-10 font-light text-gray-200">Disfruta donde quieras. Sin contratos ni letra pequeña.</p>
-                <a href="#precios" class="btn-n px-12 py-5 text-xl font-bold rounded-md uppercase tracking-tight inline-flex items-center">
-                    Ver planes de precios <i class="fas fa-chevron-right ml-4 text-sm"></i>
-                </a>
+    <header class="text-center py-20 px-4">
+        <h2 class="text-5xl md:text-7xl font-bold mb-6">Tu entretenimiento, <br>sin límites.</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">La mejor experiencia de Emby y Plex con contenido en 4K, servidores estables y soporte 24/7.</p>
+    </header>
+
+    <section id="servicios" class="max-w-6xl mx-auto px-6 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="disney-card rounded-xl p-8 text-center cursor-pointer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Plex_logo_2022.svg" alt="Plex" class="h-12 mx-auto mb-6">
+                <h3 class="text-2xl font-bold mb-4">Plex Media Server</h3>
+                <p class="text-gray-400 mb-6">Interfaz elegante, compatible con Smart TV, móviles y consolas.</p>
+                <button class="w-full bg-white text-black font-bold py-2 rounded hover:bg-gray-200 transition">Elegir Plex</button>
             </div>
-        </header>
-
-        <div class="border-sep"></div>
-
-        <section id="precios" class="py-24 px-6 bg-black">
-            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-                
-                <div class="card-plan p-10 flex flex-col items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3163/3163478.png" class="w-16 h-16 mb-6 opacity-80" alt="Basic">
-                    <h4 class="text-sm font-bold text-gray-400 uppercase tracking-[3px] mb-4">Mensual</h4>
-                    <div class="text-6xl font-black mb-10 italic">6€</div>
-                    <div class="w-full space-y-4 mb-12">
-                        <div class="flex justify-between items-center text-sm border-b border-white/5 pb-2">
-                            <span class="text-gray-500 uppercase font-bold">Calidad</span>
-                            <span class="text-white font-bold">4K HDR</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm border-b border-white/5 pb-2">
-                            <span class="text-gray-500 uppercase font-bold">Pantallas</span>
-                            <span class="text-[#e50914] font-bold">Ilimitadas *</span>
-                        </div>
-                    </div>
-                    <a href="#" class="tg-link btn-n w-full py-4 rounded-sm font-black uppercase text-[10px] tracking-widest">Elegir Plan</a>
-                </div>
-
-                <div class="card-plan p-10 flex flex-col items-center border-b-4 border-[#e50914] scale-110 bg-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative">
-                    <div class="absolute -top-4 floating-badge px-6 py-1 rounded-full text-[10px] font-black uppercase tracking-widest italic">Anual VIP</div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2107/2107957.png" class="w-16 h-16 mb-6" alt="VIP">
-                    <h4 class="text-sm font-bold text-white uppercase tracking-[3px] mb-4 italic">El más rentable</h4>
-                    <div class="text-7xl font-black mb-10 italic text-[#e50914]">16€</div>
-                    <div class="w-full space-y-4 mb-12">
-                        <div class="flex justify-between items-center text-sm border-b border-white/10 pb-2">
-                            <span class="text-gray-400 uppercase font-bold">Calidad</span>
-                            <span class="text-white font-bold tracking-tighter">ULTRA HD 4K+</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm border-b border-white/10 pb-2">
-                            <span class="text-gray-400 uppercase font-bold">Pantallas</span>
-                            <span class="text-[#e50914] font-bold">Ilimitadas *</span>
-                        </div>
-                    </div>
-                    <a href="#" class="tg-link btn-n w-full py-5 rounded-sm font-black uppercase text-[11px] tracking-widest">Activar VIP</a>
-                </div>
-
-                <div class="card-plan p-10 flex flex-col items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" class="w-16 h-16 mb-6 opacity-80" alt="Quarter">
-                    <h4 class="text-sm font-bold text-gray-400 uppercase tracking-[3px] mb-4">Trimestral</h4>
-                    <div class="text-6xl font-black mb-10 italic">10€</div>
-                    <div class="w-full space-y-4 mb-12">
-                        <div class="flex justify-between items-center text-sm border-b border-white/5 pb-2">
-                            <span class="text-gray-500 uppercase font-bold">Calidad</span>
-                            <span class="text-white font-bold">4K HDR</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm border-b border-white/5 pb-2">
-                            <span class="text-gray-500 uppercase font-bold">Pantallas</span>
-                            <span class="text-[#e50914] font-bold">Ilimitadas *</span>
-                        </div>
-                    </div>
-                    <a href="#" class="tg-link btn-n w-full py-4 rounded-sm font-black uppercase text-[10px] tracking-widest text-white">Elegir Plan</a>
-                </div>
-
-            </div>
-            <p class="text-center mt-20 text-gray-600 text-[10px] uppercase font-bold tracking-widest">* Configura tus pantallas al instante por Telegram</p>
-        </section>
-    </main>
-
-    <main id="sobre-nosotros" class="page-content hidden py-24 px-6 bg-zinc-950 min-h-screen">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="flex-1">
-                <h2 class="text-6xl font-black mb-8 italic uppercase tracking-tighter border-l-8 border-[#e50914] pl-6">Somos <br><span class="text-[#e50914]">ChurraTV</span></h2>
-                <p class="text-xl text-gray-400 leading-relaxed font-light mb-8">No vendemos cuentas, vendemos experiencias. Nuestra red de servidores de alta velocidad asegura que los estrenos lleguen a tu pantalla en calidad original.</p>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 text-white font-bold">
-                        <i class="fas fa-check-circle text-[#e50914]"></i> Servidores en España y Latam
-                    </div>
-                    <div class="flex items-center gap-4 text-white font-bold">
-                        <i class="fas fa-check-circle text-[#e50914]"></i> Actualizaciones de contenido diarias
-                    </div>
-                </div>
-            </div>
-            <div class="flex-1">
-                <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="rounded-lg shadow-2xl rotate-3" alt="Cinema">
+            <div class="disney-card rounded-xl p-8 text-center cursor-pointer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Emby_logo.svg" alt="Emby" class="h-12 mx-auto mb-6">
+                <h3 class="text-2xl font-bold mb-4">Emby Server</h3>
+                <p class="text-gray-400 mb-6">Máximo rendimiento, personalización total y fluidez extrema.</p>
+                <button class="w-full bg-white text-black font-bold py-2 rounded hover:bg-gray-200 transition">Elegir Emby</button>
             </div>
         </div>
-    </main>
+    </section>
 
-    <main id="faq" class="page-content hidden py-24 px-6 bg-black">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-5xl font-black text-center mb-16 uppercase italic">Dudas <span class="text-[#e50914]">Frecuentes</span></h2>
-            <div class="space-y-4">
-                <details class="group bg-[#222] p-2">
-                    <summary class="flex justify-between items-center p-6 text-xl font-bold cursor-pointer list-none hover:text-[#e50914] transition">
-                        ¿Cómo funciona el límite de pantallas?
-                        <i class="fas fa-plus text-xs group-open:rotate-45"></i>
-                    </summary>
-                    <p class="px-6 pb-6 text-gray-400">Es totalmente flexible. Tú nos dices cuántas personas usarán el servicio y nosotros ajustamos tu servidor Emby o Plex para que todos disfruten a la vez.</p>
-                </details>
-                <details class="group bg-[#222] p-2">
-                    <summary class="flex justify-between items-center p-6 text-xl font-bold cursor-pointer list-none hover:text-[#e50914] transition">
-                        ¿Es compatible con mi TV?
-                        <i class="fas fa-plus text-xs group-open:rotate-45"></i>
-                    </summary>
-                    <p class="px-6 pb-6 text-gray-400">Si tu TV permite descargar la app de Plex o Emby, es compatible. También en dispositivos como FireStick, Apple TV y Xiaomi Mi Box.</p>
-                </details>
-            </div>
-        </div>
-    </main>
+    <section id="sobre-nosotros" class="max-w-4xl mx-auto px-6 py-20 text-center">
+        <h2 class="text-3xl font-bold mb-8 italic">SOBRE NOSOTROS</h2>
+        <p class="text-gray-300 leading-relaxed text-lg">
+            En **StreamMaster**, no solo vendemos acceso; creamos una experiencia cinematográfica en casa. Con más de 5 años gestionando bibliotecas digitales, nos enfocamos en la calidad de imagen original (remux) y en servidores con latencia cero para que tu única preocupación sea qué película elegir.
+        </p>
+    </section>
 
-    <div class="border-sep"></div>
+    <section id="faq" class="max-w-4xl mx-auto px-6 py-20">
+        <h2 class="text-3xl font-bold mb-10 text-center">Preguntas Frecuentes</h2>
+        <div class="space-y-4">
+            <details class="faq-gradient p-4 rounded-lg cursor-pointer">
+                <summary class="font-semibold">¿Qué velocidad de internet necesito?</summary>
+                <p class="text-gray-400 mt-2 px-2">Recomendamos al menos 20 Mbps para HD y 50 Mbps para contenido en 4K HDR sin tirones.</p>
+            </details>
+            <details class="faq-gradient p-4 rounded-lg cursor-pointer">
+                <summary class="font-semibold">¿En cuántos dispositivos puedo verlo?</summary>
+                <p class="text-gray-400 mt-2 px-2">Dependiendo de tu plan, puedes tener desde 1 hasta 3 pantallas simultáneas.</p>
+            </details>
+            <details class="faq-gradient p-4 rounded-lg cursor-pointer">
+                <summary class="font-semibold">¿Ofrecen soporte técnico?</summary>
+                <p class="text-gray-400 mt-2 px-2">Sí, tenemos un canal de Telegram activo para reportar caídas o solicitar contenido nuevo.</p>
+            </details>
+        </div>
+    </section>
 
-    <footer class="py-24 px-6 text-center bg-[#000]">
-        <div class="flex justify-center items-center space-x-10 mb-16 grayscale opacity-40">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Emby_logo.svg" class="h-6" alt="Emby">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Plex_logo.svg" class="h-6" alt="Plex">
-        </div>
-        <div class="flex flex-col items-center">
-            <p class="text-gray-500 text-sm mb-10 tracking-[5px] uppercase">¿Buscas Soporte? Estamos en Telegram 24/7</p>
-            <a href="#" class="tg-link btn-n px-16 py-5 rounded font-black uppercase text-sm tracking-widest italic shadow-2xl">
-                <i class="fab fa-telegram-plane mr-3"></i> Contactar ahora
-            </a>
-        </div>
-        <p class="mt-20 text-[9px] text-gray-700 font-black tracking-[10px] uppercase">ChurraTV Media Solutions &copy; 2026</p>
+    <footer class="text-center py-10 text-gray-500 border-t border-gray-800">
+        <p>&copy; 2026 StreamMaster - Calidad cinematográfica en tus manos.</p>
     </footer>
 
 </body>
